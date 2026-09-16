@@ -1,4 +1,4 @@
-.PHONY: all clean
+.PHONY: all clean install uninstall
 
 .DEFAULT_GOAL := all
 
@@ -9,6 +9,7 @@ LIBS   = $(shell find ./lib -name "*.c" | grep src)
 SRCS   = $(shell find ./src -name "*.c")
 OBJS   = $(SRCS:%.c=%.o) $(LIBS:%.c=%.o)
 DEPS   = $(OBJS:.o=.d)
+BINDIR = /usr/local/bin
 
 -include $(DEPS)
 
@@ -22,3 +23,9 @@ $(TARGET): $(OBJS)
 
 clean: 
 	rm -f $(TARGET) $(OBJS) $(DEPS)
+
+install: $(TARGET)
+	install -Dm755 $(TARGET) $(BINDIR)/$(TARGET)
+
+uninstall:
+	rm -f $(BINDIR)/$(TARGET)

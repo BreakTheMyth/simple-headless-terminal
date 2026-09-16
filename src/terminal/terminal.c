@@ -71,6 +71,8 @@ int terminal_open(
 
         if (setsid() == -1) _exit(1);
 
+        if (ioctl(slave_fd, TIOCSCTTY, 0) == -1) _exit(1);
+
         struct winsize ws = {
             .ws_row    = self->row_count,
             .ws_col    = self->col_count,
@@ -378,7 +380,8 @@ void terminal_print(terminal *self) {
         return;
     }
 
-    ftruncate(self->output_fd, buffer_len);
+    if (ftruncate(self->output_fd, buffer_len) == -1) LOG_ERROR("%s", strerror(errno));
+
     memcpy(self->output_file, p_buffer, buffer_len);
     msync(self->output_file, buffer_len, MS_SYNC);
 }

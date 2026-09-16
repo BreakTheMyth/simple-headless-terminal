@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
     int   col_count   = 80;
     int   enable_json = 0;
     char *filename    = NULL;
-    char *args[0x100] = { "sh", NULL };
+    char *args[0x100] = { getenv("SHELL"), NULL };
     int   args_index  = 0;
 
     for (int i = 1; i < argc; i++) {

@@ -9,6 +9,7 @@ static const char *HELP_CONTENT =
 "\n"
 "A simple headless terminal that reads standard input and outputs the current screen whenever a newline is received."
 "\n"
+"\n"
 "Options:\n"
 "  -o, --output FILE     Write terminal screen output to FILE instead of stdout.\n"
 "  -s, --size COLSxROWS  Set terminal size. Default: 80x24.\n"
