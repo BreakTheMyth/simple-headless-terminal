@@ -1,9 +1,5 @@
 #pragma once
 
-#include <stdio.h>
-
-#define PRINT_HELP printf(
-
 static const char *HELP_CONTENT =
 "Usage: sht [OPTIONS] [COMMAND [ARGS...]]\n"
 "\n"
