@@ -18,7 +18,7 @@ static const char *HELP_CONTENT =
 "\n"
 "Command:\n"
 "  COMMAND [ARGS...]     Command to run inside the terminal.\n"
-"                        Default: sh\n"
+"                        Default: $SHELL\n"
 "\n"
 "Examples:\n"
 "  sht\n"
