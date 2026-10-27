@@ -2,7 +2,7 @@
 
 .DEFAULT_GOAL := all
 
-CC 	   = gcc
+CC 	   = cc
 CFLAGS = -Wall -MMD -MP -O2 $(shell find ./lib -name "include" -type d | awk '{print "-I"$$1}') -I./src
 TARGET = sht
 LIBS   = $(shell find ./lib -name "*.c" | grep src)
